@@ -19,9 +19,9 @@ while (current != NULL)
 	if (current->prev != NULL && current->n < current->prev->n)
 	{
 		A = current->prev;
-		current->prev->next = current->next;
+		A->next = current->next;
 		if (current->next != NULL)
-		current->next->prev = current->prev;
+		current->next->prev = A;
 		current->next = A;
 		current->prev = A->prev;
 		A->prev = current;
