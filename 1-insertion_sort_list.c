@@ -19,7 +19,7 @@ if (current->next == NULL && current->prev == NULL)
 	return;
 while (current != NULL)
 {
-	if (current->n < current->prev->n)
+	if (current->n < current->prev->n && current->prev != NULL)
 	{
 		A = current->prev;
 		B = current->next;
@@ -34,6 +34,7 @@ while (current != NULL)
 		else
 			*list = current;
 		print_list(*list);
+		current = current->prev;
 	}
 	else
 	current = current->next;
