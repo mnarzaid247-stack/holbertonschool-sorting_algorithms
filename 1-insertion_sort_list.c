@@ -11,14 +11,12 @@ void insertion_sort_list(listint_t **list)
 {
 listint_t *current;
 listint_t *A;
-if (list == NULL)
+if (list == NULL || *list == NULL || (*list)->next == NULL)
 	return;
 current = (*list)->next;
-if (current->next == NULL && current->prev == NULL)
-	return;
 while (current != NULL)
 {
-	if (current->n < current->prev->n && current->prev != NULL)
+	if (current->prev != NULL && current->n < current->prev->n)
 	{
 		A = current->prev;
 		current->prev->next = current->next;
