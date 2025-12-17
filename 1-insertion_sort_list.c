@@ -17,9 +17,9 @@ if (list == NULL || *list == NULL || (*list)->next == NULL)
 current = (*list)->next;
 while (current != NULL)
 {
+	next = current->next;
 	if (current->prev != NULL && current->n < current->prev->n)
 	{
-		next = current->next;
 		A = current->prev;
 		A->next = current->next;
 		if (current->next != NULL)
