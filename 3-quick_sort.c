@@ -29,7 +29,7 @@ for (; j < size - 1; j++)
 		}
 	}
 }
-}
+
 	temp = array[i + 1];
 	array[i + 1] = array[pivot];
 	array[pivot] = temp;
