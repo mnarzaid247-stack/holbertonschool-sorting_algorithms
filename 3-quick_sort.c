@@ -8,21 +8,27 @@
 void quick_sort(int *array, size_t size)
 {
 	size_t pivot = size - 1;
-	size_t i = 0, j = 0;
+	unsigned int i = -1;
+
+	size_t j = 0;
 	int temp;
 
 	if (array == NULL || size < 2)
 		return;
-for (; j < size; j++)
+for (; j < size - 1; j++)
 {
 	if (array[j] <= array[pivot])
 	{
-		temp = array[i];
-		array[i] = array[j];
-		array[j] = temp;
 		i++;
-		print_array(array, size);
+		if (i != j)
+		{
+			temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
+			print_array(array, size);
+		}
 	}
+}
 }
 	temp = array[i + 1];
 	array[i + 1] = array[pivot];
