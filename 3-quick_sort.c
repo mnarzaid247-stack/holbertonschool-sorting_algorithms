@@ -1,39 +1,44 @@
 #include "sort.h"
+
 /**
-* quick_sort - sorts an array of integers in
-* ascending order using the quick sort algorithm
+* quick_sort - sorts an array of integers in ascending order
+* using the quick sort algorithm (Lomuto partition scheme)
 * @array: pointer to the array to be sorted
 * @size: size of the array
 */
 void quick_sort(int *array, size_t size)
 {
-	size_t pivot = size - 1;
-	unsigned int i = -1;
-
-	size_t j = 0;
-	int temp;
+	size_t pivot, j;
+	int i, temp;
 
 	if (array == NULL || size < 2)
 		return;
-for (; j < size - 1; j++)
-{
-	if (array[j] <= array[pivot])
+
+	pivot = size - 1;
+	i = -1;
+
+	for (j = 0; j < size - 1; j++)
 	{
-		i++;
-		if (i != j)
+		if (array[j] <= array[pivot])
 		{
-			temp = array[i];
-			array[i] = array[j];
-			array[j] = temp;
-			print_array(array, size);
+			i++;
+			if (i != (int)j)
+			{
+				temp = array[i];
+				array[i] = array[j];
+				array[j] = temp;
+				print_array(array, size);
+			}
 		}
 	}
-}
 
-	temp = array[i + 1];
-	array[i + 1] = array[pivot];
-	array[pivot] = temp;
-	print_array(array, size);
+	if (i + 1 != (int)pivot)
+	{
+		temp = array[i + 1];
+		array[i + 1] = array[pivot];
+		array[pivot] = temp;
+		print_array(array, size);
+	}
 	if (i + 1 > 0)
 		quick_sort(array, i + 1);
 	if (size - i - 2 > 0)
